@@ -1,5 +1,5 @@
 .comments {
-    background-color: #dbdbdb;
+    background-color: #e2e2e2;
     border-radius: 5px;
     padding: 10px;
     margin-top: 20px;
@@ -11,6 +11,44 @@
     padding: 10px;
     box-shadow: 2px 2px 3px #00000020;
     margin-top: 10px;
+}
+
+.comment-form {
+    margin-top: 10px;
+    border-radius: 5px;
+    padding: 10px;
+    display: grid;
+}
+
+.comment-form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.comment-form textarea {
+    height: 80px;
+    font: inherit;
+    padding: 10px;
+    resize: none;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 2px 2px 3px #00000020;
+}
+
+.comment-form textarea:focus {
+    outline: 2px solid #2d765d;
+}
+
+.comment-form button {
+    padding: 5px 10px;
+    background-color: #2d765d;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    font: inherit;
+    margin-top: 10px;
+    justify-self: end;
 }
 
 .comment-author {
