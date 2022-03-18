@@ -1,3 +1,6 @@
+import '../styles/Post.css';
+import Comment from './Comment';
+
 function Post({ post }) {
     console.log(post);
 
@@ -13,7 +16,7 @@ function Post({ post }) {
             <section className="comments">
                 <h3>Comments</h3>
                 {post.comments.map((comment) => (
-                    <div key={comment._id}>comment</div>
+                    <Comment key={comment._id} comment={comment} />
                 ))}
             </section>
         </article>
