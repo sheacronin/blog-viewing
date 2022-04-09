@@ -19,7 +19,7 @@ function Post({ post }) {
                     <Comment key={comment._id} comment={comment} />
                 ))}
                 <form className="comment-form">
-                    <label for="content">Your New Comment:</label>
+                    <label htmlFor="content">Your New Comment:</label>
                     <textarea type="text" id="content" name="content" />
                     <button type="submit">Post Comment</button>
                 </form>

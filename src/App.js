@@ -1,16 +1,27 @@
 import './App.css';
+import Header from './components/Header';
 import PostsList from './components/PostsList';
+import Login from './components/Login';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useState } from 'react';
 
 function App() {
+    const [user, setUser] = useState(null);
+
     return (
-        <div>
-            <header>
-                <h1>Bloggit</h1>
-            </header>
+        <Router>
+            <Header />
             <main>
-                <PostsList />
+                <Routes>
+                    <Route exact path="/" element={<PostsList />} />
+                    <Route
+                        exact
+                        path="/login"
+                        element={<Login setUser={setUser} />}
+                    />
+                </Routes>
             </main>
-        </div>
+        </Router>
     );
 }
 

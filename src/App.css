@@ -7,13 +7,6 @@ body {
     line-height: 1.5;
 }
 
-header {
-    background-color: #2d765d;
-    padding: 20px;
-    color: white;
-    border-bottom: 5px solid white;
-}
-
 h1,
 h2,
 h3 {
@@ -31,4 +24,8 @@ main {
 
 button:hover {
     cursor: pointer;
+}
+
+a {
+    text-decoration: none;
 }
