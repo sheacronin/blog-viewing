@@ -18,7 +18,7 @@ function PostsList({ user }) {
 
     return (
         <div>
-            {user && <h2>Hello, {user.displayName}</h2>}
+            {user && <div className="greeting">Hello, {user.displayName}!</div>}
             {posts.map((post) => (
                 <Post key={post._id} post={post} />
             ))}

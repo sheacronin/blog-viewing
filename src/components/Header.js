@@ -9,8 +9,9 @@ function Header({ user, setUser }) {
 
     return (
         <header>
-            <Link to="/">
+            <Link to="/" className="site-title">
                 <h1>Bloggit</h1>
+                <div className="site-desc">View</div>
             </Link>
             <nav>
                 <ul>

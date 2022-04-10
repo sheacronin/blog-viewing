@@ -8,6 +8,34 @@ header {
     justify-content: space-between;
 }
 
+header nav ul {
+    display: flex;
+    gap: 30px;
+    font-size: 20px;
+}
+
 header a {
     color: white;
+}
+
+header a:hover,
+header button:hover {
+    color: #abedc6;
+}
+
+header button {
+    color: white;
+    font: inherit;
+    border: none;
+    background: none;
+}
+
+.site-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.site-desc {
+    font-style: italic;
 }
