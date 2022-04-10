@@ -2,7 +2,7 @@ import '../styles/Post.css';
 import Comment from './Comment';
 
 function Post({ post }) {
-    console.log(post);
+    //console.log(post);
 
     return (
         <article className="post">
