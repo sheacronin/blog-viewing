@@ -10,7 +10,7 @@ function CommentsSection({ post, user }) {
         const { content } = e.target.elements;
 
         postNewComment().then((data) => {
-            setComments((prevComments) => [...prevComments, data.comment]);
+            setComments((prevComments) => [data.comment, ...prevComments]);
             content.value = '';
         });
 
