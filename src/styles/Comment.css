@@ -3,6 +3,7 @@
     border-radius: 5px;
     padding: 10px;
     margin-top: 20px;
+    display: grid;
 }
 
 .comment {
@@ -54,4 +55,15 @@
 .comment-author {
     font-style: italic;
     opacity: 0.6;
+}
+
+.expand-comments {
+    font: inherit;
+    margin-top: 20px;
+    border: none;
+    background: none;
+}
+
+.expand-comments:hover {
+    color: white;
 }
