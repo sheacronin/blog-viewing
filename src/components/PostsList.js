@@ -8,9 +8,7 @@ function PostsList({ user }) {
         fetchAllPosts().then((postsData) => setPosts(postsData));
 
         async function fetchAllPosts() {
-            const response = await fetch(
-                'https://blog-api-sc.herokuapp.com/posts'
-            );
+            const response = await fetch('http://localhost:3001/posts');
             const data = await response.json();
             return data;
         }
@@ -20,7 +18,7 @@ function PostsList({ user }) {
         <div>
             {user && <div className="greeting">Hello, {user.displayName}!</div>}
             {posts.map((post) => (
-                <Post key={post._id} post={post} />
+                <Post key={post._id} post={post} user={user} />
             ))}
         </div>
     );
