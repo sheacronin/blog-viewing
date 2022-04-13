@@ -16,7 +16,7 @@ function CommentsSection({ post, user }) {
 
         async function postNewComment() {
             const res = await fetch(
-                `http://localhost:3001/posts/${post._id}/comments`,
+                `https://blog-api-sc.herokuapp.com/posts/${post._id}/comments`,
                 {
                     method: 'POST',
                     body: JSON.stringify({

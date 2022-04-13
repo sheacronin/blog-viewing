@@ -14,7 +14,7 @@ function Comment({ comment, user, postId, setComments }) {
         const { content } = e.target.elements;
 
         const res = await fetch(
-            `http://localhost:3001/posts/${postId}/comments/${comment._id}`,
+            `https://blog-api-sc.herokuapp.com/posts/${postId}/comments/${comment._id}`,
             {
                 method: 'PUT',
                 body: JSON.stringify({
@@ -48,7 +48,7 @@ function Comment({ comment, user, postId, setComments }) {
 
     async function deleteComment() {
         await fetch(
-            `http://localhost:3001/posts/${postId}/comments/${comment._id}`,
+            `https://blog-api-sc.herokuapp.com/posts/${postId}/comments/${comment._id}`,
             {
                 method: 'DELETE',
                 headers: {

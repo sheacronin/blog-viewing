@@ -8,7 +8,9 @@ function PostsList({ user }) {
         fetchAllPosts().then((postsData) => setPosts(postsData));
 
         async function fetchAllPosts() {
-            const response = await fetch('http://localhost:3001/posts');
+            const response = await fetch(
+                'https://blog-api-sc.herokuapp.com/posts'
+            );
             const data = await response.json();
             return data;
         }
