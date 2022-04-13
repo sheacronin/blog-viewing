@@ -5,6 +5,7 @@ import Login from './components/Login';
 import SignUp from './components/SignUp';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import Footer from './components/Footer';
 
 function App() {
     const [user, setUser] = useState(null);
@@ -63,6 +64,7 @@ function App() {
                     <Route exact path="/signup" element={<SignUp />} />
                 </Routes>
             </main>
+            <Footer />
         </Router>
     );
 }
