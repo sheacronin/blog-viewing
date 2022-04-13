@@ -88,7 +88,9 @@
 }
 
 .edit-comment {
-    text-align: right;
+    justify-content: right;
+    display: flex;
+    gap: 10px;
 }
 
 .edit-comment button,
@@ -100,4 +102,9 @@
     background-color: #e2e2e2;
     justify-self: right;
     max-width: 100px;
+}
+
+.delete-button:hover {
+    background-color: #b64d4d;
+    color: white;
 }

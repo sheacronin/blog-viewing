@@ -46,6 +46,22 @@ function Comment({ comment, user, postId, setComments }) {
         setIsEditing(false);
     }
 
+    async function deleteComment() {
+        await fetch(
+            `http://localhost:3001/posts/${postId}/comments/${comment._id}`,
+            {
+                method: 'DELETE',
+                headers: {
+                    Authorization: 'Bearer ' + localStorage.getItem('token'),
+                },
+            }
+        );
+
+        setComments((prevComments) =>
+            prevComments.filter((aComment) => aComment._id !== comment._id)
+        );
+    }
+
     return (
         <div className="comment">
             <div className="comment-info">
@@ -74,6 +90,9 @@ function Comment({ comment, user, postId, setComments }) {
             )}
             {user && user.id === comment.author._id && !isEditing && (
                 <div className="edit-comment">
+                    <button onClick={deleteComment} className="delete-button">
+                        Delete
+                    </button>
                     <button onClick={toggleEditing}>Edit Comment</button>
                 </div>
             )}
