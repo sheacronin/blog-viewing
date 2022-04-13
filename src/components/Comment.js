@@ -1,7 +1,51 @@
 import { formatRelative, parseISO } from 'date-fns';
+import { useState } from 'react';
 import '../styles/Comment.css';
 
-function Comment({ comment }) {
+function Comment({ comment, user, postId, setComments }) {
+    const [isEditing, setIsEditing] = useState(false);
+
+    function toggleEditing() {
+        setIsEditing((prevIsEditing) => !prevIsEditing);
+    }
+
+    async function editComment(e) {
+        e.preventDefault();
+        const { content } = e.target.elements;
+
+        const res = await fetch(
+            `http://localhost:3001/posts/${postId}/comments/${comment._id}`,
+            {
+                method: 'PUT',
+                body: JSON.stringify({
+                    content: content.value,
+                }),
+                credentials: 'include',
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: 'Bearer ' + localStorage.getItem('token'),
+                },
+            }
+        );
+
+        const data = await res.json();
+
+        setComments((prevComments) => {
+            const newComments = [...prevComments];
+            const index = newComments.findIndex(
+                (aComment) => aComment._id === comment._id
+            );
+            newComments[index] = {
+                ...newComments[index],
+                content: data.comment.content,
+            };
+
+            return newComments;
+        });
+
+        setIsEditing(false);
+    }
+
     return (
         <div className="comment">
             <div className="comment-info">
@@ -12,7 +56,27 @@ function Comment({ comment }) {
                     {formatRelative(parseISO(comment.timestamp), new Date())}
                 </p>
             </div>
-            <p>{comment.content}</p>
+            {isEditing ? (
+                <form className="edit-comment-form" onSubmit={editComment}>
+                    <label htmlFor="content" hidden>
+                        Your Comment:
+                    </label>
+                    <textarea
+                        type="text"
+                        id="content"
+                        name="content"
+                        defaultValue={comment.content}
+                    />
+                    <button type="submit">Post Comment</button>
+                </form>
+            ) : (
+                <p>{comment.content}</p>
+            )}
+            {user && user.id === comment.author._id && !isEditing && (
+                <div className="edit-comment">
+                    <button onClick={toggleEditing}>Edit Comment</button>
+                </div>
+            )}
         </div>
     );
 }

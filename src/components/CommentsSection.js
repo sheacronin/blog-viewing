@@ -46,7 +46,15 @@ function CommentsSection({ post, user }) {
                 if (!areCommentsExpanded && index > 1) {
                     return null;
                 }
-                return <Comment key={comment._id} comment={comment} />;
+                return (
+                    <Comment
+                        key={comment._id}
+                        comment={comment}
+                        user={user}
+                        postId={post._id}
+                        setComments={setComments}
+                    />
+                );
             })}
             {comments.length > 2 && (
                 <button
