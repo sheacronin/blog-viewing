@@ -3,7 +3,7 @@ import Header from './components/Header';
 import PostsList from './components/PostsList';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Footer from './components/Footer';
 
