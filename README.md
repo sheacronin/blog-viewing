@@ -12,9 +12,13 @@ The user must make an account through the signup page to author blog posts or le
 
 ## Bloggit View
 
+<img width="1280" alt="Bloggit-View" src="https://user-images.githubusercontent.com/67711077/163388396-8c8ded14-83ad-4ceb-bf04-779aedb45b50.png">
+
 The index page will load all published blog posts for the user to view. The user can also view all comments left on each blog post, with an expandable comments section. Login and sign up pages are available to create an account or log in as an existing user. If the user is logged in, they can leave a comment on any published blog post.
 
 ## Bloggit Author
+
+<img width="1280" alt="Bloggit-Author" src="https://user-images.githubusercontent.com/67711077/163388417-81bbca83-78b0-455a-b24a-14d05d8bae27.png">
 
 The index page will load all posts by the signed in user, with buttons to edit, delete, or publish/unpublish each post. There is also an option to view the comments on any post and delete any comment that has been left on your post.
 
