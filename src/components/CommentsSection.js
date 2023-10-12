@@ -1,5 +1,6 @@
-import Comment from './Comment';
 import { useState } from 'react';
+import { API_BASE_URL } from '../constants';
+import Comment from './Comment';
 
 function CommentsSection({ post, user }) {
     const [comments, setComments] = useState(post.comments);
@@ -16,7 +17,7 @@ function CommentsSection({ post, user }) {
 
         async function postNewComment() {
             const res = await fetch(
-                `https://blog-api-sc.herokuapp.com/posts/${post._id}/comments`,
+                `${API_BASE_URL}/posts/${post._id}/comments`,
                 {
                     method: 'POST',
                     body: JSON.stringify({

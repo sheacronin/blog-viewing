@@ -1,5 +1,6 @@
-import { formatRelative, parseISO } from 'date-fns';
 import { useState } from 'react';
+import { formatRelative, parseISO } from 'date-fns';
+import { API_BASE_URL } from '../constants';
 import '../styles/Comment.css';
 
 function Comment({ comment, user, postId, setComments }) {
@@ -14,7 +15,7 @@ function Comment({ comment, user, postId, setComments }) {
         const { content } = e.target.elements;
 
         const res = await fetch(
-            `https://blog-api-sc.herokuapp.com/posts/${postId}/comments/${comment._id}`,
+            `${API_BASE_URL}/posts/${postId}/comments/${comment._id}`,
             {
                 method: 'PUT',
                 body: JSON.stringify({
@@ -47,15 +48,12 @@ function Comment({ comment, user, postId, setComments }) {
     }
 
     async function deleteComment() {
-        await fetch(
-            `https://blog-api-sc.herokuapp.com/posts/${postId}/comments/${comment._id}`,
-            {
-                method: 'DELETE',
-                headers: {
-                    Authorization: 'Bearer ' + localStorage.getItem('token'),
-                },
-            }
-        );
+        await fetch(`${API_BASE_URL}/posts/${postId}/comments/${comment._id}`, {
+            method: 'DELETE',
+            headers: {
+                Authorization: 'Bearer ' + localStorage.getItem('token'),
+            },
+        });
 
         setComments((prevComments) =>
             prevComments.filter((aComment) => aComment._id !== comment._id)
